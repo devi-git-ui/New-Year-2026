@@ -1,0 +1,352 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Happy New Year 2026</title>
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap/5.3.2/css/bootstrap.min.css" rel="stylesheet">
+    <style>
+        :root {
+            --pastel-pink: #FFD3E1;
+            --pastel-blue: #C5E3FF;
+            --pastel-lavender: #E1D5F8;
+            --pastel-mint: #D5F8E1;
+            --pastel-peach: #FFE4CC;
+            --pastel-yellow: #FFF9C4;
+            --pastel-sand: #EFE8DD;
+            --pastel-white: #F5F4EF;
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            overflow-x: hidden;
+            background: linear-gradient(135deg, var(--pastel-blue), var(--pastel-lavender), var(--pastel-pink));
+            min-height: 100vh;
+        }
+
+        .hero-section {
+            min-height: 100vh;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            text-align: center;
+            position: relative;
+            padding: 2rem;
+        }
+
+        .hero-content {
+            z-index: 2;
+            animation: fadeInUp 1s ease-out;
+        }
+
+        .hero-title {
+            font-size: clamp(2.5rem, 8vw, 6rem);
+            font-weight: bold;
+            color: #fff;
+            text-shadow: 3px 3px 6px rgba(0,0,0,0.1);
+            margin-bottom: 1rem;
+            animation: scaleIn 1s ease-out;
+        }
+
+        .hero-subtitle {
+            font-size: clamp(1.2rem, 3vw, 2rem);
+            color: #fff;
+            text-shadow: 2px 2px 4px rgba(0,0,0,0.1);
+            margin-bottom: 2rem;
+        }
+
+        .year-badge {
+            display: inline-block;
+            background: rgba(255, 255, 255, 0.3);
+            backdrop-filter: blur(10px);
+            padding: 1rem 2.5rem;
+            border-radius: 50px;
+            font-size: clamp(1.5rem, 4vw, 3rem);
+            font-weight: bold;
+            color: #fff;
+            box-shadow: 0 8px 32px rgba(0,0,0,0.1);
+            margin-top: 1rem;
+            animation: pulse 2s infinite;
+        }
+
+        .floating-elements {
+            position: absolute;
+            width: 100%;
+            height: 100%;
+            top: 0;
+            left: 0;
+            pointer-events: none;
+            overflow: hidden;
+        }
+
+        .confetti {
+            position: absolute;
+            width: 10px;
+            height: 10px;
+            border-radius: 50%;
+            animation: fall linear infinite;
+        }
+
+        .wishes-section {
+            padding: 5rem 0;
+            background: linear-gradient(135deg, var(--pastel-mint), var(--pastel-yellow));
+        }
+
+        .wish-card {
+            background: rgba(255, 255, 255, 0.7);
+            backdrop-filter: blur(10px);
+            border-radius: 20px;
+            padding: 2rem;
+            margin: 1.5rem 0;
+            box-shadow: 0 8px 32px rgba(0,0,0,0.1);
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+            animation: fadeIn 0.8s ease-out;
+            height: 280px;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+        }
+
+        .wish-card:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 12px 48px rgba(0,0,0,0.15);
+        }
+
+        .wish-icon {
+            font-size: 3rem;
+            margin-bottom: 1rem;
+        }
+
+        .gallery-section {
+            padding: 5rem 0;
+            background: linear-gradient(135deg, var(--pastel-sand),var(--pastel-white));
+        }
+
+        .image-placeholder {
+            width: 100%;
+            height: 350px;
+            background: rgba(255, 255, 255, 0.5);
+            backdrop-filter: blur(10px);
+            border-radius: 15px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin: 1rem 0;
+            border: 3px dashed rgba(255, 255, 255, 0.8);
+            transition: transform 0.3s ease;
+            cursor: pointer;
+        }
+
+        .image-placeholder:hover {
+            transform: scale(1.05);
+        }
+
+        .image-placeholder img {
+            max-width: 100%;
+            max-height: 100%;
+            border-radius: 15px;
+            object-fit: cover;
+        }
+
+        .section-title {
+            text-align: center;
+            font-size: clamp(2rem, 5vw, 3.5rem);
+            font-weight: bold;
+            color: #fff;
+            text-shadow: 2px 2px 4px rgba(0,0,0,0.1);
+            margin-bottom: 3rem;
+        }
+
+        @keyframes fadeInUp {
+            from {
+                opacity: 0;
+                transform: translateY(30px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        @keyframes scaleIn {
+            from {
+                opacity: 0;
+                transform: scale(0.8);
+            }
+            to {
+                opacity: 1;
+                transform: scale(1);
+            }
+        }
+
+        @keyframes fadeIn {
+            from {
+                opacity: 0;
+            }
+            to {
+                opacity: 1;
+            }
+        }
+
+        @keyframes pulse {
+            0%, 100% {
+                transform: scale(1);
+            }
+            50% {
+                transform: scale(1.05);
+            }
+        }
+
+        @keyframes fall {
+            to {
+                transform: translateY(100vh) rotate(360deg);
+            }
+        }
+
+        @media (max-width: 768px) {
+            .wish-card {
+                padding: 1.5rem;
+            }
+            
+        }
+    </style>
+</head>
+<body>
+    <!-- Hero Section -->
+    <section class="hero-section">
+        <div class="floating-elements" id="confettiContainer"></div>
+        <div class="hero-content">
+            <h1 class="hero-title">Happy New Year!</h1>
+            <p class="hero-subtitle">Wishing you joy, prosperity, and endless possibilities</p>
+            <div class="year-badge">2026</div>
+        </div>
+    </section>
+
+
+
+    <!-- Wishes Section -->
+    <section class="wishes-section">
+        <div class="container">
+            <h2 class="section-title">Wishes for You</h2>
+            <div class="row">
+                <div class="col-md-4">
+                    <div class="wish-card">
+                        <div class="wish-icon">🥗</div>
+                        <h3>Healthy Choices</h3>
+                        <p>May you choose salad over pizza... at least once this year. Baby steps count!</p>
+                    </div>
+                </div>
+                <div class="col-md-4">
+                    <div class="wish-card">
+                        <div class="wish-icon">😴</div>
+                        <h3>Sleep Goals</h3>
+                        <p>Wishing you the ability to sleep before midnight. We know you'll still be scrolling at 2 AM!</p>
+                    </div>
+                </div>
+                <div class="col-md-4">
+                    <div class="wish-card">
+                        <div class="wish-icon">💰</div>
+                        <h3>Financial Wisdom</h3>
+                        <p>May you understand where money goes. Hint: Coffee, delivery, and Amazon impulse buys!</p>
+                    </div>
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-md-4">
+                    <div class="wish-card">
+                        <div class="wish-icon">🎮</div>
+                        <h3>Productivity Expert</h3>
+                        <p>May you be as productive as when avoiding work. Your side quests are legendary!</p>
+                    </div>
+                </div>
+                <div class="col-md-4">
+                    <div class="wish-card">
+                        <div class="wish-icon">🤪</div>
+                        <h3>Adulting Unlocked</h3>
+                        <p>Cheers to pretending we know what we're doing! Fake it till you make it, right?!</p>
+                    </div>
+                </div>
+                <div class="col-md-4">
+                    <div class="wish-card">
+                        <div class="wish-icon">🎪</div>
+                        <h3>Life's A Circus</h3>
+                        <p>May you have fewer Zoom calls and more real interaction. Pants are overrated anyway!</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Image Section -->
+    <section class="gallery-section">
+        <div class="container">
+            <div class="row justify-content-center">
+                <div class="col-12 col-md-10 col-lg-8">
+                    <div class="image-placeholder" style="height: auto; min-height: 400px; padding: 0; border: none; background: transparent;">
+                        <img src="./Images/natalie-kinnear-tDZySy1einE-unsplash.jpg" alt="Happy New Year" style="width: 100%; height: auto; border-radius: 15px; box-shadow: 0 8px 32px rgba(0,0,0,0.15);">
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap/5.3.2/js/bootstrap.bundle.min.js"></script>
+    <script>
+        // Create floating confetti
+        function createConfetti() {
+            const container = document.getElementById('confettiContainer');
+            const colors = ['#FFD3E1', '#C5E3FF', '#E1D5F8', '#D5F8E1', '#FFE4CC', '#FFF9C4'];
+            
+            for (let i = 0; i < 50; i++) {
+                const confetti = document.createElement('div');
+                confetti.className = 'confetti';
+                confetti.style.left = Math.random() * 100 + '%';
+                confetti.style.backgroundColor = colors[Math.floor(Math.random() * colors.length)];
+                confetti.style.animationDuration = (Math.random() * 3 + 2) + 's';
+                confetti.style.animationDelay = Math.random() * 2 + 's';
+                container.appendChild(confetti);
+            }
+        }
+
+
+
+        // Smooth scroll animation for wish cards
+        const observerOptions = {
+            threshold: 0.1,
+            rootMargin: '0px 0px -100px 0px'
+        };
+
+        const observer = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.style.opacity = '1';
+                    entry.target.style.transform = 'translateY(0)';
+                }
+            });
+        }, observerOptions);
+
+        document.querySelectorAll('.wish-card').forEach(card => {
+            card.style.opacity = '0';
+            card.style.transform = 'translateY(30px)';
+            card.style.transition = 'opacity 0.8s ease, transform 0.8s ease';
+            observer.observe(card);
+        });
+
+        // Initialize
+        createConfetti();
+
+        // Add click effect to image placeholders
+        document.querySelectorAll('.image-placeholder').forEach(placeholder => {
+            placeholder.addEventListener('click', function() {
+                alert('Click here to add your image!\n\nTo add images:\n1. Replace the placeholder div with an <img> tag\n2. Set the src attribute to your image path\n3. Example: <img src="your-image.jpg" alt="Description">');
+            });
+        });
+    </script>
+</body>
+</html>
